@@ -70,13 +70,15 @@
 }
 li:last-child {
     background: #f3f3f3;
+    min-height: 50px;
     display: block;
-    padding: 30px;
+    padding: 25px;
     margin: 0px 9px 9px 9px;
     text-align: center;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 26px;
+    overflow-wrap: break-word;
 }
 .converter-wrapper input[type="submit"] {
     background: #2471ff;

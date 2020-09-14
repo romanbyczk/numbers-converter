@@ -1,36 +1,27 @@
 "use strict";
 const MIN_BASE_VALUE = 2;
 const MAX_BASE_VALUE = 36;
-const FIELDS_IDS = ["from-base-error", "to-base-error", "input-error"];
 
 const form = document.getElementsByTagName("form")[0];
 form.addEventListener("submit", function onConvertClick(event) {
     event.preventDefault();
-    hideMessages(FIELDS_IDS);
+    hideMessages();
     const resultField = document.getElementById("result");
     const fromBase = document.getElementById("from_base").value;
     const toBase = document.getElementById("to_base").value;
     const input = document.getElementById("input").value;
-    if (validate(fromBase, toBase, input)) {
+    if (validate(fromBase, input)) {
         const result = getConversionResult(input, fromBase, toBase);
         if (result === undefined) {
-            showMessage(FIELDS_IDS[2], "UNKNOWN ERROR");
+            showMessage("input-error", "UNKNOWN ERROR");
         }
         resultField.innerText = result || "";
     }
 });
 
-function validate(fromBase, toBase, input) {
-    if (!isInputInRange(fromBase, MIN_BASE_VALUE, MAX_BASE_VALUE)) {
-        showMessage(FIELDS_IDS[0], "Please write correct number base beetwen 2 and 36");
-        return false;
-    }
-    if (!isInputInRange(toBase, MIN_BASE_VALUE, MAX_BASE_VALUE)) {
-        showMessage(FIELDS_IDS[1], "Please write correct number base beetwen 2 and 36");
-        return false;
-    }
+function validate(fromBase, input) {
     if (!isInputValid(input, fromBase)) {
-        showMessage(FIELDS_IDS[2], "Please write correct number in given base");
+        showMessage("input-error", "Please write correct number in given base");
         return false;
     }
     return true;
@@ -41,10 +32,8 @@ function showMessage(fieldId, message) {
     document.getElementById(fieldId).style.display = "block";
 }
 
-function hideMessages(fieldIds) {
-    fieldIds.forEach((element) => {
-        document.getElementById(element).style.display = "none";
-    });
+function hideMessages() {
+    document.getElementById("input-error").style.display = "none";
 }
 
 function getConversionResult(input, fromBase, toBase) {
