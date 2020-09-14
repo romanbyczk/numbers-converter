@@ -1,0 +1,26 @@
+{
+    "name": "numbers-converter",
+    "version": "1.0.0",
+    "description": "Simple widget that allows user to convert nombers from one radix(2-36) to another",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/romanbyczk/numbers-converter.git"
+    },
+    "keywords": [
+        "numbers",
+        "converter",
+        "radix",
+        "base",
+        "system"
+    ],
+    "author": "Roman Byczk",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/romanbyczk/numbers-converter/issues"
+    },
+    "homepage": "https://github.com/romanbyczk/numbers-converter#readme"
+}

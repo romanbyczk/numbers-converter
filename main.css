@@ -1,4 +1,4 @@
-.converter-wrapper {
+.converter-container {
     max-width: 400px;
     margin: 50px auto;
     background: #fff;
@@ -6,7 +6,7 @@
     padding: 20px;
     font-family: Georgia, "Times New Roman", Times, serif;
 }
-.converter-wrapper h1 {
+.converter-container h1 {
     display: block;
     text-align: center;
     padding: 0;
@@ -14,24 +14,24 @@
     color: #5c5c5c;
     font-size: x-large;
 }
-.converter-wrapper ul {
+.converter-container ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.converter-wrapper li {
+.converter-container li {
     display: block;
     padding: 9px;
     border: 1px solid #dddddd;
     margin-bottom: 30px;
     border-radius: 3px;
 }
-.converter-wrapper li:nth-last-child(2) {
+.converter-container li:nth-last-child(2) {
     border: none;
     margin-bottom: 0px;
     text-align: center;
 }
-.converter-wrapper li > label {
+.converter-container li > label {
     display: block;
     float: left;
     margin-top: -19px;
@@ -43,8 +43,8 @@
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
 }
-.converter-wrapper input[type="text"],
-.converter-wrapper input[type="number"] {
+.converter-container input[type="text"],
+.converter-container input[type="number"] {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -80,7 +80,7 @@ li:last-child {
     font-size: 26px;
     overflow-wrap: break-word;
 }
-.converter-wrapper input[type="submit"] {
+.converter-container input[type="submit"] {
     background: #2471ff;
     border: none;
     padding: 10px 20px 10px 20px;
@@ -88,7 +88,7 @@ li:last-child {
     border-radius: 3px;
     color: #d2e2ff;
 }
-.converter-wrapper input[type="submit"]:hover {
+.converter-container input[type="submit"]:hover {
     background: #6b9fff;
     color: #fff;
 }
