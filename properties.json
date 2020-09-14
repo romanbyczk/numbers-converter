@@ -1,0 +1,9 @@
+{
+    "MIN_BASE_VALUE": 2,
+    "MAX_BASE_VALUE": 36,
+    "FIELDS_IDS": {
+        "FROM_BASE_ERROR": "from-base-error",
+        "TO_BASE_ERROR": "to-base-error",
+        "INPUT_ERROR": "input-error"
+    }
+}

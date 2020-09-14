@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="main.css" />
+    </head>
+    <body>
+        <form class="converter-wrapper">
+            <ul>
+                <li>
+                    <label for="from_base">From base</label>
+                    <input type="number" name="from_base" min="2" max="36" id="from_base" required />
+                    <span class="error-message" style="display: none" id="from-base-error">
+                        Please write correct number base beetwen 2 and 36
+                    </span>
+                </li>
+                <li>
+                    <label for="to_base">To base</label>
+                    <input type="number" name="to_base" min="2" max="36" id="to_base" required />
+                    <span class="error-message" style="display: none" id="to-base-error">
+                        Please write correct number base beetwen 2 and 36
+                    </span>
+                </li>
+                <li>
+                    <label for="input">Input number</label>
+                    <input type="text" name="input" id="input" required />
+                    <span class="error-message" style="display: none" id="input-error">
+                        Please write correct number
+                    </span>
+                </li>
+                <li>
+                    <input type="submit" value="Convert" />
+                </li>
+                <li>
+                    <label for="result">Result</label>
+                    <span id="result"></span>
+                </li>
+            </ul>
+        </form>
+    </body>
+    <script src="index.js"></script>
+</html>

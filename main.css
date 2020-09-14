@@ -1,0 +1,92 @@
+.converter-wrapper {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 2px;
+    padding: 20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.converter-wrapper h1 {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5c5c5c;
+    font-size: x-large;
+}
+.converter-wrapper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.converter-wrapper li {
+    display: block;
+    padding: 9px;
+    border: 1px solid #dddddd;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+.converter-wrapper li:nth-last-child(2) {
+    border: none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.converter-wrapper li > label {
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: #ffffff;
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #b9b9b9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.converter-wrapper input[type="text"],
+.converter-wrapper input[type="number"] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.error-message {
+    background: white;
+    display: none;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+li:last-child {
+    background: #f3f3f3;
+    display: block;
+    padding: 30px;
+    margin: 0px 9px 9px 9px;
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+}
+.converter-wrapper input[type="submit"] {
+    background: #2471ff;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #5994ff;
+    border-radius: 3px;
+    color: #d2e2ff;
+}
+.converter-wrapper input[type="submit"]:hover {
+    background: #6b9fff;
+    color: #fff;
+}
