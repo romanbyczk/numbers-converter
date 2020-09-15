@@ -36,61 +36,67 @@ class NumbersConverter extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
+
     connectedCallback() {
-        const MIN_BASE_VALUE = 2;
-        const MAX_BASE_VALUE = 36;
-
         const form = this.shadowRoot.getElementById("form");
-        const scopedRoot = this.shadowRoot;
-        form.addEventListener("submit", function onConvertClick(event) {
-            event.preventDefault();
-            hideErrorMessage();
-            const resultField = scopedRoot.getElementById("result");
-            const fromBase = scopedRoot.getElementById("from_base").value;
-            const toBase = scopedRoot.getElementById("to_base").value;
-            const input = scopedRoot.getElementById("input").value;
-            if (validate(fromBase, input)) {
-                const result = getConversionResult(input, fromBase, toBase);
-                if (result === undefined) {
-                    showMessage("input-error", "UNKNOWN ERROR");
-                }
-                resultField.innerText = result || "";
-            }
-        });
-
-        function validate(fromBase, input) {
-            if (!isInputValid(input, fromBase)) {
-                showMessage("input-error", "Please write correct number in given base");
-                return false;
-            }
-            return true;
-        }
-
-        function showMessage(fieldId, message) {
-            scopedRoot.getElementById(fieldId).innerText = message;
-            scopedRoot.getElementById(fieldId).style.display = "block";
-        }
-
-        function hideErrorMessage() {
-            scopedRoot.getElementById("input-error").style.display = "none";
-        }
-
-        function getConversionResult(input, fromBase, toBase) {
-            return parseInt(input, fromBase).toString(toBase);
-        }
-
-        function isInputValid(input, base) {
-            if (!input) return false;
-            let inputCharacters = input.toString().toUpperCase();
-            inputCharacters = inputCharacters[0] === "-" ? inputCharacters.slice(1) : inputCharacters;
-            inputCharacters =
-                parseInt(base) === 16 && inputCharacters.slice(0, 2) === "0X"
-                    ? inputCharacters.slice(2)
-                    : inputCharacters;
-            const pattern = base <= 10 ? `[0-${base - 1}]` : `[0-9A-${String.fromCharCode(base - 11 + 65)}]`;
-            const wrongCharacter = [...inputCharacters].find((v) => !v.match(pattern));
-            return !wrongCharacter;
-        }
+        form.addEventListener("submit", this.onConvertClick);
     }
+
+    onConvertClick = (event) => {
+        this.clearState(event);
+        const result = this.transform(
+            this.getInputValues({ fromBase: "from_base", toBase: "to_base", input: "input" })
+        );
+        this.shadowRoot.getElementById("result").innerText = result || "";
+    };
+
+    clearState = (event) => {
+        event.preventDefault();
+        this.hideErrorMessage("input-error");
+    };
+
+    showMessage = (fieldId, message) => {
+        this.shadowRoot.getElementById(fieldId).innerText = message;
+        this.shadowRoot.getElementById(fieldId).style.display = "block";
+    };
+
+    hideErrorMessage = (fieldId) => {
+        this.shadowRoot.getElementById(fieldId).style.display = "none";
+    };
+
+    getInputValues = (fieldIds) => {
+        const fromBase = this.shadowRoot.getElementById(fieldIds.fromBase).value;
+        const toBase = this.shadowRoot.getElementById(fieldIds.toBase).value;
+        const input = this.shadowRoot.getElementById(fieldIds.input).value;
+        return { fromBase, toBase, input };
+    };
+
+    transform = ({ fromBase, toBase, input }) => {
+        if (!this.validate(fromBase, input)) return;
+        const result = this.convert(input, fromBase, toBase);
+        if (isNaN(result)) this.showMessage("input-error", "UNKNOWN ERROR");
+        return result;
+    };
+
+    convert = (input, fromBase, toBase) => {
+        return parseInt(input, fromBase).toString(toBase).toUpperCase();
+    };
+
+    validate = (fromBase, input) => {
+        if (this.isInputValid(input, fromBase)) return true;
+        this.showMessage("input-error", "Please write correct number in given base");
+    };
+
+    isInputValid = (input, base) => {
+        if (!input) return false;
+        let inputCharacters = input.toString().toUpperCase();
+        inputCharacters = inputCharacters[0] === "-" ? inputCharacters.slice(1) : inputCharacters;
+        inputCharacters =
+            parseInt(base) === 16 && inputCharacters.slice(0, 2) === "0X" ? inputCharacters.slice(2) : inputCharacters;
+        const pattern = base <= 10 ? `[0-${base - 1}]` : `[0-9A-${String.fromCharCode(base - 11 + 65)}]`;
+        const wrongCharacter = [...inputCharacters].find((v) => !v.match(pattern));
+        return !wrongCharacter;
+    };
 }
+
 window.customElements.define("numbers-converter", NumbersConverter);

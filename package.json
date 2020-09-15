@@ -8,10 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/romanbyczk/numbers-converter"
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
+        "url": "git://github.com/romanbyczk/numbers-converter.git"
     },
     "keywords": [
         "numbers",
