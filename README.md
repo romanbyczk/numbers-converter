@@ -16,7 +16,12 @@ to html
 <script src="node_modules/@romanbyczk/numbers-converter/index.js"></script>
 ```
 
-to html, but you need to know that this vidget works correctly only if node_modules folder is in project root folder
+to html, but you need to know that this vidget works correctly only if node_modules folder is in project root folder, you also need to have .npmrc file in which will be
+
+```
+registry=https://npm.pkg.github.com/@romanbyczk
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
 
 # To use it
 
