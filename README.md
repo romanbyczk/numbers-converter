@@ -2,6 +2,16 @@
 
 Simple widget that allows user to convert nombers from one radix(2-36) to another radix(2-36)
 
+1. If you want to use it by cloning repo or downloading it you need to add:
+
+```html
+<script src="index.js"></script>
+```
+
+in your html
+and in index.js you need to change href attribute of link from `node_modules/@romanbyczk/numbers-converter/index.js`
+to `main.css` ###5th line in file
+
 ##You can download it by npm and you need to add
 
 ```html
