@@ -1,6 +1,6 @@
 {
     "name": "numbers-converter",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "Simple widget that allows user to convert nombers from one radix(2-36) to another",
     "main": "index.js",
     "scripts": {
