@@ -2,7 +2,7 @@
 const template = document.createElement("template");
 
 template.innerHTML = `
-<link rel="stylesheet" href="/node_modules/@romanbyczk/numbers-converter/main.css" />
+<link rel="stylesheet" href="/src/main.css" />
 <form class="converter-container" id="form">
             <ul>
                 <li>
